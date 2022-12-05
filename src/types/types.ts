@@ -39,13 +39,12 @@ export interface RaritySettings {
  */
 export interface GetNftsForContractOptions {
   /**
-   * Optional page key from an existing {@link NftContractBaseNftsResponse} or
    * {@link NftContractNftsResponse}to use for pagination.
    */
   pageKey?: string;
 
   /** Optional boolean flag to omit NFT metadata. Defaults to `false`. */
-  omitMetadata?: boolean;
+  withMetadata?: boolean;
 
   /**
    * Sets the total number of NFTs to return in the response. Defaults to 100.
@@ -63,14 +62,27 @@ export interface GetNftsForContractOptions {
 }
 
 /**
+ * Options object used to get rarity score
+ * @public
+ */
+export interface GetNftsRarityScoreOptions {
+  /**
+   * {@link GetNftsForContractOptions}to use for pagination.
+   */
+  pageKey?: string;
+
+  /**  Return nfts rank in the metadata result */
+  showRank?: boolean
+}
+
+/**
  * The response object for the {@link getNftsForContract} function. The object
  * contains the NFTs with metadata inside the NFT contract.
- *
  * @public
  */
 export interface NftContractNftsResponse {
   /** An array of NFTs with metadata. */
-  nfts: [];
+  nfts: any[];
 
   /**
    * Pagination token that can be passed into another request to fetch the next
@@ -100,6 +112,6 @@ export interface GetNftsForContractAlchemyParams {
  * @internal
  */
 export interface RawGetNftsForContractResponse {
-  nfts: [];
+  nfts: any[];
   nextToken?: string;
 }

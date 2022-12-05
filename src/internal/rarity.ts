@@ -1,9 +1,13 @@
 import {RaritySettings} from '../types/types';
 import {RarityConfig} from './rarity-config';
-import {getNftsForContract} from '../api/alchemy-api';
+import {
+  generateRarityScore,
+  getNftsForContract,
+} from '../api/alchemy-api';
 import {
   NftContractNftsResponse,
   GetNftsForContractOptions,
+  GetNftsRarityScoreOptions,
 } from '../types/types';
 
 /**
@@ -31,7 +35,7 @@ export class Rarity {
    * @param options - The optional parameters to use for the request.
    * @beta
    */
-  getNftsForContract(
+  async getNftsForContract(
     contractAddress: string,
     options?: GetNftsForContractOptions
   ): Promise<NftContractNftsResponse>;
@@ -40,5 +44,22 @@ export class Rarity {
     options?: GetNftsForContractOptions
   ): Promise<NftContractNftsResponse> {
     return getNftsForContract(this.config, contractAddress, options);
+  }
+
+  /**
+   *
+   * @param contractAddress - The contract address of the NFT contract.
+   * @param options - The optional parameters to use for the request.
+   * @beta
+   */
+  async getNftsRarityScore(
+    contractAddress: string,
+    options?: GetNftsForContractOptions
+  ): Promise<any>;
+  async getNftsRarityScore(
+    contractAddress: string,
+    options?: GetNftsRarityScoreOptions
+  ): Promise<any> {
+    return await generateRarityScore(this.config, contractAddress, options);
   }
 }
