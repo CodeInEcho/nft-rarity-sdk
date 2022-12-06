@@ -139,7 +139,7 @@ export async function generateRarityScore(
   }
 
   if (options?.showRank) {
-    let rankMap = {} as { [key: string]: Number };
+    const rankMap = {} as { [key: string]: number };
     nftArr.slice().sort((a, b) => b.rarityScore - a.rarityScore).map((nft, index) => {
       rankMap[nft.name] = index + 1;
     });
