@@ -1,4 +1,4 @@
-import axios, { AxiosRequestConfig, AxiosResponse } from 'axios';
+import axios, { AxiosRequestConfig, AxiosResponse } from 'axios'
 
 /**
  * Helper function to send http requests using Axis.
@@ -7,17 +7,17 @@ import axios, { AxiosRequestConfig, AxiosResponse } from 'axios';
 export function sendAxiosRequest<Req, Res>(
   requestUrl: string,
   params: Req,
-  overrides?: AxiosRequestConfig
+  overrides?: AxiosRequestConfig,
 ): Promise<AxiosResponse<Res>> {
   const config: AxiosRequestConfig = {
     ...overrides,
     headers: {
       ...overrides?.headers,
-      ...({ 'Accept-Encoding': 'gzip' }),
+      ...{ 'Accept-Encoding': 'gzip' },
     },
     method: overrides?.method ?? 'GET',
     url: requestUrl,
-    params
-  };
-  return axios(config);
+    params,
+  }
+  return axios(config)
 }

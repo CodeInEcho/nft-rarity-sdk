@@ -1,14 +1,7 @@
-import {RaritySettings} from '../types/types';
-import {RarityConfig} from './rarity-config';
-import {
-  generateRarityScore,
-  getNftsForContract,
-} from '../api/alchemy-api';
-import {
-  NftContractNftsResponse,
-  GetNftsForContractOptions,
-  GetNftsRarityScoreOptions,
-} from '../types/types';
+import { RaritySettings } from '../types/types'
+import { RarityConfig } from './rarity-config'
+import { generateRarityScore, getNftsForContract } from '../api/alchemy-api'
+import { NftContractNftsResponse, GetNftsForContractOptions, GetNftsRarityScoreOptions } from '../types/types'
 
 /**
  * @public
@@ -18,10 +11,10 @@ export class Rarity {
    * Holds the setting information for the instance of the Alchemy SDK client
    * and allows access to the underlying providers.
    */
-  readonly config: RarityConfig;
+  readonly config: RarityConfig
 
   constructor(settings?: RaritySettings) {
-    this.config = new RarityConfig(settings);
+    this.config = new RarityConfig(settings)
   }
 
   /**
@@ -37,13 +30,10 @@ export class Rarity {
    */
   async getNftsForContract(
     contractAddress: string,
-    options?: GetNftsForContractOptions
-  ): Promise<NftContractNftsResponse>;
-  getNftsForContract(
-    contractAddress: string,
-    options?: GetNftsForContractOptions
-  ): Promise<NftContractNftsResponse> {
-    return getNftsForContract(this.config, contractAddress, options);
+    options?: GetNftsForContractOptions,
+  ): Promise<NftContractNftsResponse>
+  getNftsForContract(contractAddress: string, options?: GetNftsForContractOptions): Promise<NftContractNftsResponse> {
+    return getNftsForContract(this.config, contractAddress, options)
   }
 
   /**
@@ -52,14 +42,8 @@ export class Rarity {
    * @param options - The optional parameters to use for the request.
    * @beta
    */
-  async getNftsRarityScore(
-    contractAddress: string,
-    options?: GetNftsForContractOptions
-  ): Promise<any>;
-  async getNftsRarityScore(
-    contractAddress: string,
-    options?: GetNftsRarityScoreOptions
-  ): Promise<any> {
-    return await generateRarityScore(this.config, contractAddress, options);
+  async getNftsRarityScore(contractAddress: string, options?: GetNftsForContractOptions): Promise<any>
+  async getNftsRarityScore(contractAddress: string, options?: GetNftsRarityScoreOptions): Promise<any> {
+    return await generateRarityScore(this.config, contractAddress, options)
   }
 }

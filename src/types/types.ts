@@ -15,7 +15,7 @@ export enum Network {
   ARB_GOERLI = 'arb-goerli',
   MATIC_MAINNET = 'polygon-mainnet',
   MATIC_MUMBAI = 'polygon-mumbai',
-  ASTAR_MAINNET = 'astar-mainnet'
+  ASTAR_MAINNET = 'astar-mainnet',
 }
 
 /**
@@ -24,8 +24,8 @@ export enum Network {
  * @public
  */
 export interface RaritySettings {
-  network?: Network;
-  alchemyApiKey?: string;
+  network?: Network
+  alchemyApiKey?: string
 }
 
 /**
@@ -41,16 +41,16 @@ export interface GetNftsForContractOptions {
   /**
    * {@link NftContractNftsResponse}to use for pagination.
    */
-  pageKey?: string;
+  pageKey?: string
 
   /** Optional boolean flag to omit NFT metadata. Defaults to `false`. */
-  withMetadata?: boolean;
+  withMetadata?: boolean
 
   /**
    * Sets the total number of NFTs to return in the response. Defaults to 100.
    * Maximum page size is 100.
    */
-  pageSize?: number;
+  pageSize?: number
 
   /**
    * No set timeout by default - When metadata is requested, this parameter is
@@ -58,7 +58,7 @@ export interface GetNftsForContractOptions {
    * respond. If you want to only access the cache and not live fetch any
    * metadata for cache misses then set this value to 0.
    */
-  tokenUriTimeoutInMs?: number;
+  tokenUriTimeoutInMs?: number
 }
 
 /**
@@ -69,7 +69,7 @@ export interface GetNftsRarityScoreOptions {
   /**
    * {@link GetNftsForContractOptions}to use for pagination.
    */
-  pageKey?: string;
+  pageKey?: string
 
   /**  Return nfts rank in the metadata result */
   showRank?: boolean
@@ -82,13 +82,13 @@ export interface GetNftsRarityScoreOptions {
  */
 export interface NftContractNftsResponse {
   /** An array of NFTs with metadata. */
-  nfts: any[];
+  nfts: any[]
 
   /**
    * Pagination token that can be passed into another request to fetch the next
    * NFTs. If there is no page key, then there are no more NFTs to fetch.
    */
-  pageKey?: string;
+  pageKey?: string
 }
 
 /**
@@ -99,11 +99,11 @@ export interface NftContractNftsResponse {
  * @internal
  */
 export interface GetNftsForContractAlchemyParams {
-  contractAddress: string;
-  startToken?: string;
-  withMetadata: boolean;
-  limit?: number;
-  tokenUriTimeoutInMs?: number;
+  contractAddress: string
+  startToken?: string
+  withMetadata: boolean
+  limit?: number
+  tokenUriTimeoutInMs?: number
 }
 
 /**
@@ -112,6 +112,6 @@ export interface GetNftsForContractAlchemyParams {
  * @internal
  */
 export interface RawGetNftsForContractResponse {
-  nfts: any[];
-  nextToken?: string;
+  nfts: any[]
+  nextToken?: string
 }

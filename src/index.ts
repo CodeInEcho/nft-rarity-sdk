@@ -1,5 +1,5 @@
-export * from './types/types';
+export * from './types/types'
 
-export { Rarity } from './internal/rarity';
+export { Rarity } from './internal/rarity'
 
-export type { RarityConfig } from './internal/rarity-config';
+export type { RarityConfig } from './internal/rarity-config'
