@@ -1,7 +1,7 @@
 {
-  "name": "npm-typescript-boilerplate",
-  "version": "1.1.1",
-  "description": "typescript样板库",
+  "name": "nft-rarity-sdk",
+  "version": "1.0.0",
+  "description": "nft rarity sdk",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
   "scripts": {
@@ -20,7 +20,7 @@
     "release": "standard-version"
   },
   "keywords": [],
-  "author": "",
+  "author": "CodeInEcho",
   "license": "ISC",
   "repository": {
     "type": "git",

@@ -82,7 +82,7 @@ export async function getNftsAndMetaData(
 export async function generateRarityScore(
   config: RarityConfig,
   contractAddress: string,
-  options?: GetNftsRarityScoreOptions,
+  options?: GetNftsRarityScoreOptions
 ) {
   const [metadata, allNfts, metadataAttributes] = await getNftsAndMetaData(config, contractAddress, options);
   const totalMetadata = metadataAttributes.length;
@@ -137,5 +137,14 @@ export async function generateRarityScore(
 
     nftArr.push(nft);
   }
+
+  if (options?.showRank) {
+    let rankMap = {} as { [key: string]: Number };
+    nftArr.slice().sort((a, b) => b.rarityScore - a.rarityScore).map((nft, index) => {
+      rankMap[nft.name] = index + 1;
+    });
+    nftArr.map(item => Object.assign(item, { rank: rankMap[item.name] }));
+  }
+
   return nftArr;
 }

@@ -75,4 +75,5 @@ typings/
 # FuseBox cache
 .fusebox/
 
-/test.js
+# test file
+test.js
