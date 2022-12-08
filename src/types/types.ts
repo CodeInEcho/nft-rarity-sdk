@@ -71,6 +71,9 @@ export interface GetNftsRarityScoreOptions {
    */
   pageKey?: string
 
+  /**  Return nfts tokenId in the metadata result */
+  showId?: boolean
+
   /**  Return nfts rank in the metadata result */
   showRank?: boolean
 }
@@ -114,4 +117,30 @@ export interface GetNftsForContractAlchemyParams {
 export interface RawGetNftsForContractResponse {
   nfts: any[]
   nextToken?: string
+}
+
+/**
+ * Metadata properties in Alchemy's HTTP response nfts data
+ * 
+ * @internal 
+ */
+export interface MetadataAttributes {
+  /** Alchemy returns metadata {@link value} value type */
+  display_type?: string
+  /** Trait value of metadata */
+  value: string | number
+  /** Trait types of metadata */
+  trait_type: string
+  /** Trait score */
+  rarity_score?: number
+}
+
+/**
+ * Used to temporarily get a list of all feature properties and values
+ * 
+ * @internal
+ */
+export interface TraitsAndValuesType {
+  values: string[]
+  traits: string[]
 }

@@ -1,6 +1,7 @@
 import { RaritySettings } from '../types/types'
 import { RarityConfig } from './rarity-config'
-import { generateRarityScore, getNftsForContract } from '../api/alchemy-api'
+import { getNftsForContract } from '../api/alchemy-api'
+import { generateRarityScore } from '../internal/ratity-summation'
 import { NftContractNftsResponse, GetNftsForContractOptions, GetNftsRarityScoreOptions } from '../types/types'
 
 /**
@@ -8,8 +9,7 @@ import { NftContractNftsResponse, GetNftsForContractOptions, GetNftsRarityScoreO
  */
 export class Rarity {
   /**
-   * Holds the setting information for the instance of the Alchemy SDK client
-   * and allows access to the underlying providers.
+   * Setup information for Rarity SDK client instance​​
    */
   readonly config: RarityConfig
 
@@ -18,7 +18,6 @@ export class Rarity {
   }
 
   /**
-   * Based on alchemy sdk modification.
    * Get all base NFTs for a given contract address.
    *
    * This method returns the base NFTs that omit the associated metadata. To get
@@ -37,7 +36,8 @@ export class Rarity {
   }
 
   /**
-   *
+   * Fetch metadata and calculate rarity via alchemy api
+   * 
    * @param contractAddress - The contract address of the NFT contract.
    * @param options - The optional parameters to use for the request.
    * @beta

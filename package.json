@@ -24,7 +24,7 @@
   "license": "ISC",
   "repository": {
     "type": "git",
-    "url": "https://github.com/xiaomingplus/npm-typescript-boilerplate.git"
+    "url": "https://github.com/MapleAzure/nft-rarity-sdk"
   },
   "devDependencies": {
     "@commitlint/cli": "^7.2.1",
