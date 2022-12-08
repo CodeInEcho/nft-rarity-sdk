@@ -1,8 +1,4 @@
-import {
-  MetadataAttributes,
-  TraitsAndValuesType,
-  GetNftsRarityScoreOptions,
-} from '../types/types'
+import { MetadataAttributes, TraitsAndValuesType, GetNftsRarityScoreOptions } from '../types/types'
 import { RarityConfig } from '../internal/rarity-config'
 import { getNftsForContract } from '../api/alchemy-api'
 
@@ -143,13 +139,13 @@ export async function generateRarityScore(
       image: currentNft.metadata.image,
       attributes: currentMeta,
       rarityScore: Math.round(100 * totalRarity) / 100,
-    } as { name: string, image: string, tokenId?: string,  attributes: any, rarityScore: number };
+    } as { name: string; image: string; tokenId?: string; attributes: any; rarityScore: number }
 
     if (options?.showId) {
       nft.tokenId = currentNft.id.tokenId
     }
 
-    nftArr.push({...nft})
+    nftArr.push({ ...nft })
   }
 
   if (options?.showRank) {

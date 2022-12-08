@@ -37,7 +37,7 @@ export class Rarity {
 
   /**
    * Fetch metadata and calculate rarity via alchemy api
-   * 
+   *
    * @param contractAddress - The contract address of the NFT contract.
    * @param options - The optional parameters to use for the request.
    * @beta

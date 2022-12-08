@@ -1,6 +1,6 @@
 {
   "name": "nft-rarity-sdk",
-  "version": "1.0.0-beta.1",
+  "version": "1.0.0-beta.2",
   "description": "nft rarity sdk",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
@@ -9,7 +9,7 @@
     "start": "npm run dev",
     "dev": "tsc -w",
     "build": "tsc",
-    "format": "prettier --write \"src/**/*.ts\" \"src/**/*.js\"",
+    "format": "prettier --write \"src/**/*.ts\"",
     "lint": "tslint -p tsconfig.json",
     "cm": "git-cz",
     "prepare": "npm run build",

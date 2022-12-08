@@ -121,8 +121,8 @@ export interface RawGetNftsForContractResponse {
 
 /**
  * Metadata properties in Alchemy's HTTP response nfts data
- * 
- * @internal 
+ *
+ * @internal
  */
 export interface MetadataAttributes {
   /** Alchemy returns metadata {@link value} value type */
@@ -137,7 +137,7 @@ export interface MetadataAttributes {
 
 /**
  * Used to temporarily get a list of all feature properties and values
- * 
+ *
  * @internal
  */
 export interface TraitsAndValuesType {
